@@ -1,0 +1,49 @@
+<?xml version = "1.0"?>
+
+<data-dictioniary name="hackeroverflow">
+
+<table name="table3">
+
+    <description>Name of the notification component</description>
+
+    <columns>
+
+        <column name="col1">
+            <description>Name of the notification component</description>
+            <data-type>INT</data-type>
+            <auto-increment>true</auto-increment>
+        </column>
+
+        <column name="col2">
+            <description>Name of the notification component</description>
+            <data-type>varchar</data-type>
+            <max-size>50</max-size>
+            <nullable>false</nullable>
+        </column>
+
+    </columns>
+
+    <primary-key name="jaswanth">col1</primary-key>
+
+    <foreign-keys>
+
+        <foreign-key name="fk_table1" reference-table-name="table0">
+
+            <fk-local-column>col2</fk-local-column>
+            <fk-reference-column>col1.2</fk-reference-column>
+            <fk-constraints>delete on casade update on cascade</fk-constraints>
+
+        </foreign-key>
+
+    </foreign-keys>
+
+    <unique-keys name="uk_table1">
+
+        <unique-key-column>col3</unique-key-column>
+        <unique-key-column>col4</unique-key-column>
+
+    </unique-keys>
+
+</table>
+
+</data-dictioniary>

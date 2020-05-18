@@ -39,7 +39,6 @@ public class java_creation {
             }
 
         }
-
         return ddfiles;
     }
 
@@ -47,12 +46,12 @@ public class java_creation {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
 
         ArrayList<String> paths=getDatafiles();
-        System.out.println(paths);
         for (int temp = 0; temp < paths.size(); temp++) {
 
             ArrayList<HashMap<String,String>> table=xmlFilesParser(paths.get(temp));
-            System.out.println(table);
 
+            createTable obj1=new createTable();
+            obj1.tablecreate(table);
         }
 
     }
@@ -153,6 +152,4 @@ public class java_creation {
 
         return xmlTablesCreate;
     }
-
-
 }
