@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,7 +15,7 @@ public class createTable {
     private static final String foreignkeybool="fk-avail";
     private static final String uniquekeybool="uk-avail";
 
-    public void tablecreate(ArrayList<HashMap<String,String>> array){
+    public void tablecreate(ArrayList<HashMap<String,String>> array) throws SQLException, IOException, ClassNotFoundException {
 
         ArrayList<HashMap<String,String>> arraylist=array;
         for(int temp1=0;temp1<arraylist.size();temp1++){
@@ -25,7 +27,7 @@ public class createTable {
     }
 
 
-    public void columnseparator(HashMap<String,String> map){
+    public void columnseparator(HashMap<String,String> map) throws SQLException, IOException, ClassNotFoundException {
 
         HashMap<String,String> hashmap=map;
         int columns=Integer.parseInt(hashmap.get("columns"));
@@ -112,7 +114,7 @@ public class createTable {
 
         sqlquery=sqlquery+");";
 
-        System.out.println("SQL-QUERY : "+sqlquery+"\n");
+        queryDatabase.createTable(sqlquery);
 
     }
 

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,13 +16,13 @@ import org.xml.sax.SAXException;
 
 public class java_creation {
 
-    public static String databasename="";
-    public static final String URL="/Users/jaswa-zuch749/xml/src";
+    private static String databasename="";
+    private static final String PATH=GetPath.getPath()+"/src";
 
     public static ArrayList<String> getDatafiles() throws ParserConfigurationException, IOException, SAXException {
 
         ArrayList<String> ddfiles= new ArrayList<>();
-        File inputFile = new File(URL+"/dd-files.xml");
+        File inputFile = new File(PATH+"/dd-files.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(inputFile);
@@ -33,7 +34,7 @@ public class java_creation {
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-                String filepath=URL+eElement.getAttribute("path");
+                String filepath=PATH+eElement.getAttribute("path");
                 ddfiles.add(filepath);
 
             }
@@ -43,7 +44,7 @@ public class java_creation {
     }
 
 
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, SQLException, ClassNotFoundException {
 
         ArrayList<String> paths=getDatafiles();
         for (int temp = 0; temp < paths.size(); temp++) {

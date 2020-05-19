@@ -23,24 +23,12 @@
 
     </columns>
 
-    <primary-key name="jaswanth">col1</primary-key>
+    <primary-key name="pk_table1">col1</primary-key>
 
-    <foreign-keys>
-
-        <foreign-key name="fk_table1" reference-table-name="table0">
-
-            <fk-local-column>col2</fk-local-column>
-            <fk-reference-column>col1.2</fk-reference-column>
-            <fk-constraints>delete on casade update on cascade</fk-constraints>
-
-        </foreign-key>
-
-    </foreign-keys>
 
     <unique-keys name="uk_table1">
 
-        <unique-key-column>col3</unique-key-column>
-        <unique-key-column>col4</unique-key-column>
+        <unique-key-column>col2</unique-key-column>
 
     </unique-keys>
 
@@ -65,26 +53,31 @@
                 <nullable>false</nullable>
             </column>
 
+            <column name="col3">
+                <description>Name of the notification component</description>
+                <data-type>varchar</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+
         </columns>
 
-        <primary-key name="jaswanth">col1</primary-key>
+        <primary-key name="pk_table2">col2</primary-key>
 
         <foreign-keys>
 
-            <foreign-key name="fk_table1" reference-table-name="table0">
+            <foreign-key name="fk_table2" reference-table-name="table1">
 
-                <fk-local-column>col2</fk-local-column>
-                <fk-reference-column>col1.2</fk-reference-column>
-                <fk-constraints>delete on casade update on cascade</fk-constraints>
+                <fk-local-column>col1</fk-local-column>
+                <fk-reference-column>col1</fk-reference-column>
 
             </foreign-key>
 
         </foreign-keys>
 
-        <unique-keys name="uk_table1">
+        <unique-keys name="uk_table2">
 
             <unique-key-column>col3</unique-key-column>
-            <unique-key-column>col4</unique-key-column>
 
         </unique-keys>
 
